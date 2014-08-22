@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: tags_development
+
+test: 
+  adapter: postgresql
+  database: tags_test
