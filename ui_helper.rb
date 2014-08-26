@@ -1,5 +1,6 @@
 require 'active_record'
 require 'pg'
+require 'pry'
 require './lib/item.rb'
 require './lib/tag.rb'
 

@@ -8,8 +8,9 @@ def main_menu
   puts "Choose an option:"
   puts "1 > New Item"
   puts "2 > New Tag"
-  puts "3 > Modify Items"
-  puts "4 > Modify Tags"
+  puts "3 > Items Menu"
+  puts "4 > Tags Menu"
+  puts "5 > Assign"
   puts "X > Exit"
 
   menu_choice = gets.chomp.downcase
@@ -23,6 +24,7 @@ def main_menu
     main_menu
   when '3' then items_menu
   when '4' then tags_menu
+  when '5' then assign_menu
   when 'x'
     puts "Goodbye!"
     wait
@@ -120,7 +122,27 @@ def tags_menu
   main_menu
 end
 
-
+def assign_menu
+  c
+  puts "Assign a:"
+  puts "T > Tag to Item"
+  puts "I > Item to Tag"
+  puts "R > Return to Main Menu"
+  input = gets.chomp.downcase
+  case input
+  when 't'
+    tag_to_item
+    assign_menu
+  when 'i'
+    item_to_tag
+    assign_menu
+  when 'r'
+    main_menu
+  else
+    error
+    assign_menu
+  end
+end
 
 
 
