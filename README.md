@@ -1,10 +1,22 @@
-# Tags
+# targs
 
 A re-write of my other [Tags](https://github.com/expandrew/tags.git) system using Active Record.
 
+## what
+
+* an "essential" tags system
+* *#[selfdogfood](http://indiewebcamp.com/selfdogfood), #[onethingwell](http://onethingwell.org/)* 
+* a building block of an experiment I'm working on
+
+## plans
+
+* run visualization on top of this system to see connected elements
+* run UI 
+
+
 ## Features
 
-The user can:
+(Old features list):
 
 * create new items (`Item.new`, `Item.save`)
 * create new tags (`Tag.new`, `Tag.save`)
@@ -54,9 +66,9 @@ Shared methods between both classes:
 
 ## Meta
 
-Database Basics assessment for [Epicodus](http://epicodus.com)
+Active Record assessment for [Epicodus](http://epicodus.com)
 
-16 August 2014
+23 August 2014
 
 by [Andrew M Westling](http://andrewwestling.com)  
 a@andrewwestling.com
