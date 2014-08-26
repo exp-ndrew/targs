@@ -4,71 +4,20 @@ A re-write of my other [Tags](https://github.com/expandrew/tags.git) system usin
 
 ## what
 
-* an "essential" tags system
-* *#[selfdogfood](http://indiewebcamp.com/selfdogfood), #[onethingwell](http://onethingwell.org/)* 
+* a tagging system
+* *#[selfdogfood](http://indiewebcamp.com/selfdogfood), #[onethingwell](http://onethingwell.org/)*
 * a building block of an experiment I'm working on
 
 ## plans
 
 * run visualization on top of this system to see connected elements
-* run UI 
-
-
-## Features
-
-(Old features list):
-
-* create new items (`Item.new`, `Item.save`)
-* create new tags (`Tag.new`, `Tag.save`)
-* list all items (`Item.all`, `Item.list`)
-  * see from the item list which tags an item has
-* list all tags (`Tag.all`, `Tag.list`)
-  * see from the tag list which items are assigned to each tag
-* assign a tag to an item (`Tag.assign_to(item)`)
-* assign an item to a tag (`Item.assign_to(tag)`)
-* remove an item from the collection (`Item.remove`);
-  * implicitly remove the removed item's tag associations
-* globally remove a tag from all items it is associated with (`Tag.remove`)
-* remove a tag from an individual item (`Tag.remove_from(item)`);
-  * purge unused tags from the collection (`Tag.purge_unused`) **(WIP)**
-* list all tags currently assigned to an item (`Item.list_tags`) 
-* rename a tag (`Tag.rename`)
-* rename an item (`Item.rename`)
-* return all the tags assigned to a particular item (`Item.tags`) 
-* return the items tagged with a particular tag. (`Tag.items`) 
-
-Shared methods between both classes:
-
-`self.save`  
-`self.list`  
-`self.all`  
-`self.rename`  
-`self.search_by_name`  
-
-## Issues
-
-* duplicates exist on join table when a tag/item is assigned to an item/tag multiple times
-
-## In Progress
-
-* implement a `find_or_create` method for adding tags; user simply enters the name of the tag they wish to assign and the method either finds the existing tag with the given name, or it creates a tag with the given name if one doesn't exist.
-* implement a `Tag.purge_unused` method for removing tags that have no items associated with them
-* refactor the UI so the menu options are clearer
-* allow user to assign multiple tags at once (input separated by commas)
-* show tags assigned to each item in the item list
-* show items assigned to each tag in the tag list
-
-## Future Plans
-
-* refactor with Active Record syntax
-* somehow use d3 or another viz library to make a visualization of connected elements
-* use a front-end library to create new items/tags and use triggers in the frontend to create connections/joins on the database
+* run UI framework on top of this system to allow interaction through a GUI
 
 ## Meta
 
 Active Record assessment for [Epicodus](http://epicodus.com)
 
-23 August 2014
+26 August 2014
 
-by [Andrew M Westling](http://andrewwestling.com)  
+by [Andrew M Westling](http://andrewwestling.com)
 a@andrewwestling.com
