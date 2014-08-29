@@ -131,12 +131,12 @@ def item_to_tag
     Tag.all.each_with_index do |tag, index|
       puts "#{index+1}. #{tag.name}"
     end
+    ws
     puts "Enter the number of the tag you would like to assign to '#{the_item.name}'"
     input = gets.chomp
     the_tag_to_assign = Tag.all[(input.to_i)-1]
-    binding.pry
     the_item.tags << the_tag_to_assign
-    puts "Successfully assigned '#{the_tag_to_assign.name}'' to '#{the_item.name}!'"
+    puts "Successfully assigned '#{the_tag_to_assign.name}' to '#{the_item.name}!'"
     wait
     assign_menu
   when 'c'
@@ -154,4 +154,33 @@ def tag_to_item
   Tag.all.each_with_index do |tag, index|
     puts "#{index+1}. #{tag.name}"
   end
+  ws
+  puts "C > Cancel"
+  puts "Enter the number of the tag you would like to assign to an item:"
+  input = gets.chomp.downcase
+  case input
+  when /\d*/
+    the_tag = Tag.all[(input.to_i)-1]
+    ws
+    puts "Assign '#{the_tag.name}' to an item:"
+    ws 
+    puts "Here are all the items in your collection:"
+    Item.all.each_with_index do |item, index|
+      puts "#{index+1}. #{item.name}"
+    end
+    ws
+    puts "Enter the number of the item you would like to assign '#{the_tag.name} to:"
+    input = gets.chomp
+    the_item_to_assign = Item.all[(input.to_i)-1]
+    the_tag.items << the_item_to_assign
+    puts "Successfully assigned '#{the_tag.name}' to '#{the_item_to_assign.name}!'"
+    wait
+    assign_menu
+  when 'c'
+    assign_menu
+  else
+    error
+    assign_menu
+  end
+
 end
