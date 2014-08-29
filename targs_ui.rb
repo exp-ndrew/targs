@@ -90,7 +90,7 @@ def tags_menu
   end
   ws
   puts "\# > View Tag"
-  puts "I > Assign a Tag to an Item"
+  puts "T > Assign a Tag to an Item"
   puts "N > New Tag"
   puts "E > Edit a Tag name"
   puts "D > Delete a Tag"
@@ -102,7 +102,7 @@ def tags_menu
   when /\d+/
     view_tag((input.to_i)-1)
     tags_menu
-  when 'i'
+  when 't'
     tag_to_item
     tags_menu
   when 'n'

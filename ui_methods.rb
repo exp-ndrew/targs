@@ -1,4 +1,4 @@
-# check_if_existsvalidation methods
+# check_if_exists validation methods
 
 def check_if_item_exists index
   if Item.all[index] != nil
@@ -55,7 +55,15 @@ def view_item index
       puts "No tags."
     end
     ws
-    wait
+    puts "R > Remove a tag from #{the_item.name}"
+    puts "Press any key other to return"
+    input = gets.chomp.downcase
+    case input
+    when 'r'
+      tag_from_item(the_item)
+    else
+      puts ws
+    end
   else
     error
   end
@@ -75,7 +83,15 @@ def view_tag index
       puts "None"
     end
     ws
-    wait
+    puts "R > Remove an item from #{the_tag.name}"
+    puts "Press any other key to return"
+    input = gets.chomp.downcase
+    case input
+    when 'r'
+      item_from_tag(the_tag)
+    else
+      puts ws
+    end
   else
     error
   end
@@ -272,3 +288,44 @@ def tag_to_item
   end
 
 end
+
+# deassign methods
+
+def item_from_tag the_tag
+  ws
+  puts "Enter the number of the item to remove a tag from:"
+  input = gets.chomp
+  case input
+  when /\d+/
+    if the_tag.items[((input.to_i)-1)] != nil
+      the_item = the_tag.items.find(the_tag.items[(input.to_i)-1].id)
+      the_tag.items.delete(the_item)
+      puts "Successfully removed the tag '#{the_tag.name}' from '#{the_item.name}'."
+      wait
+    else
+      error
+    end
+  else 
+    error
+  end
+end
+
+def tag_from_item the_item
+  ws
+  puts "Enter the number of the tag to remove:"
+  input = gets.chomp
+  case input
+  when /\d+/
+    if the_item.tags[((input.to_i)-1)] != nil
+      the_tag = the_item.tags.find(the_item.tags[(input.to_i)-1].id)
+      the_item.tags.delete(the_tag)
+      puts "Successfully removed the tag '#{the_tag.name}' from '#{the_item.name}'."
+      wait
+    else
+      error
+    end
+  else
+    error
+  end
+end
+
