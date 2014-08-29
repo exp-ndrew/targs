@@ -30,6 +30,7 @@ end
 def items_menu
   c
   puts "Here are all the items in your collection:"
+  ws
   Item.all.each_with_index do |item, index|
     puts "#{index+1}. #{item.name}"
   end
@@ -83,11 +84,10 @@ end
 def tags_menu
   c
   puts "Here are all the tags in your collection:"
-
+  ws
   Tag.all.each_with_index do |tag, index|
     puts "#{index+1}. #{tag.name}"
   end
-
   ws
   puts "\# > View Tag"
   puts "I > Assign a Tag to an Item"
