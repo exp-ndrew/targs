@@ -1,6 +1,7 @@
 # new methods
 
 def items_new
+  ws
   puts "Enter the new item name:"
   item_name = gets.chomp
   Item.create({name: item_name})
@@ -9,10 +10,46 @@ def items_new
 end
 
 def tags_new
+  ws
   puts "Enter the new tag name:"
   tag_name = gets.chomp
   new_tag = Tag.create({name: tag_name})
   puts "New tag named '#{new_tag.name}' created!"
+  wait
+end
+
+# view methods
+
+def view_item index
+  ws
+  the_item = Item.all[index]
+  puts "Viewing '#{the_item.name}'"
+  ws
+  if the_item.tags.length != 0
+    puts "Tags:"
+    the_item.tags.each_with_index do |tag, i|
+      puts "#{i+1}. #{tag.name}"
+    end
+  else
+    puts "No tags."
+  end
+  ws
+  wait
+end
+
+def view_tag index
+  ws
+  the_tag = Tag.all[index]
+  puts "Items with the tag '#{the_tag.name}'"
+  ws
+  if the_tag.items.length != 0
+    the_tag.items.each_with_index do |item, i|
+      puts "#{i+1}. #{item.name}"
+    end
+  else
+    puts "None"
+  end
+  ws
   wait
 end
 

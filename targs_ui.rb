@@ -43,8 +43,7 @@ def items_menu
   input = gets.chomp.downcase
   case input
   when /\d+/
-    puts "view item"
-    wait
+    view_item((input.to_i)-1)
     items_menu
   when 't'
     item_to_tag
@@ -101,8 +100,7 @@ def tags_menu
 
   case input
   when /\d+/
-    puts "view tag"
-    wait
+    view_tag((input.to_i)-1)
     tags_menu
   when 'i'
     tag_to_item
