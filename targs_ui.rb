@@ -6,9 +6,8 @@ require './ui_methods.rb'
 def main_menu
   c
   puts "Choose an option:"
-  puts "1 > Items Menu (View, New, Edit, Delete)"
-  puts "2 > Tags Menu (View, New, Edit, Delete)"
-  puts "3 > Assign"
+  puts "1 > Items (View, New, Edit, Delete)"
+  puts "2 > Tags (View, New, Edit, Delete)"
   puts "X > Exit"
 
   menu_choice = gets.chomp.downcase
@@ -18,7 +17,6 @@ def main_menu
     items_menu
   when '2'
     tags_menu
-  when '3' then assign_menu
   when 'x'
     puts "Goodbye!"
     wait
@@ -29,7 +27,6 @@ def main_menu
   end
 end
 
-
 def items_menu
   c
   puts "Here are all the items in your collection:"
@@ -37,7 +34,7 @@ def items_menu
     puts "#{index+1}. #{item.name}"
   end
   ws
-  puts "\# View Item"
+  puts "\# > View Item"
   puts "T > Assign a Tag to an Item"
   puts "N > New Item"
   puts "E > Edit a Item name"
@@ -48,6 +45,9 @@ def items_menu
   when /\d+/
     puts "view item"
     wait
+    items_menu
+  when 't'
+    item_to_tag
     items_menu
   when 'n'
     items_new
@@ -90,7 +90,7 @@ def tags_menu
   end
 
   ws
-  puts "\# View Tag"
+  puts "\# > View Tag"
   puts "I > Assign a Tag to an Item"
   puts "N > New Tag"
   puts "E > Edit a Tag name"
@@ -103,6 +103,9 @@ def tags_menu
   when /\d+/
     puts "view tag"
     wait
+    tags_menu
+  when 'i'
+    tag_to_item
     tags_menu
   when 'n'
     tags_new
@@ -135,30 +138,6 @@ def tags_menu
     tags_menu
   end
 end
-
-def assign_menu
-  c
-  puts "Assign a:"
-  puts "T > Tag to Item"
-  puts "I > Item to Tag"
-  puts "R > Return to Main Menu"
-  input = gets.chomp.downcase
-  case input
-  when 't'
-    tag_to_item
-    assign_menu
-  when 'i'
-    item_to_tag
-    assign_menu
-  when 'r'
-    main_menu
-  else
-    error
-    assign_menu
-  end
-end
-
-
 
 main_menu
 

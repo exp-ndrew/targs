@@ -113,10 +113,10 @@ end
 # assign methods
 
 def item_to_tag
-  puts "Here are all the items in your collection:"
-  Item.all.each_with_index do |item, index|
-    puts "#{index+1}. #{item.name}"
-  end
+  # puts "Here are all the items in your collection:"
+  # Item.all.each_with_index do |item, index|
+  #   puts "#{index+1}. #{item.name}"
+  # end
   ws
   puts "C > Cancel"
   puts "Enter the number of the item you would like to assign a tag to:"
@@ -138,22 +138,22 @@ def item_to_tag
     the_item.tags << the_tag_to_assign
     puts "Successfully assigned '#{the_tag_to_assign.name}' to '#{the_item.name}!'"
     wait
-    assign_menu
+    items_menu
   when 'c'
-    assign_menu
+    items_menu
   else
     error
-    assign_menu
+    items_menu
   end
 
 end
 
 def tag_to_item
-  puts "Here are all the tags in your collection:"
+  # puts "Here are all the tags in your collection:"
 
-  Tag.all.each_with_index do |tag, index|
-    puts "#{index+1}. #{tag.name}"
-  end
+  # Tag.all.each_with_index do |tag, index|
+  #   puts "#{index+1}. #{tag.name}"
+  # end
   ws
   puts "C > Cancel"
   puts "Enter the number of the tag you would like to assign to an item:"
@@ -175,12 +175,12 @@ def tag_to_item
     the_tag.items << the_item_to_assign
     puts "Successfully assigned '#{the_tag.name}' to '#{the_item_to_assign.name}!'"
     wait
-    assign_menu
+    tags_menu
   when 'c'
-    assign_menu
+    tags_menu
   else
     error
-    assign_menu
+    tags_menu
   end
 
 end
