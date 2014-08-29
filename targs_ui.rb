@@ -40,6 +40,7 @@ def items_menu
   puts "N > New Item"
   puts "E > Edit a Item name"
   puts "D > Delete a Item"
+  puts "U > View Untagged Items"
   puts "R > Return to main menu"
   input = gets.chomp.downcase
   case input
@@ -61,6 +62,9 @@ def items_menu
     when /\d+/
       items_delete((input.to_i)-1)
     end
+  when 'u'
+    items_untagged
+    items_menu
   when 'e'
     ws
     puts "Enter the number of the item to rename, or press 'c' to cancel"

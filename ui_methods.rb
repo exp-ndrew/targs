@@ -329,3 +329,21 @@ def tag_from_item the_item
   end
 end
 
+# untagged items
+
+def items_untagged
+  ws
+  if Item.untagged != []
+    puts "Items without tags:"
+    ws
+    Item.untagged.each do |item|
+      puts "#{item.name}"
+    end
+  else
+    puts "All items have at least one tag."
+  end
+  ws
+  puts "Press any key to return"
+  input = gets.chomp
+end
+

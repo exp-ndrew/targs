@@ -20,9 +20,9 @@ A re-write of my other [Tags](https://github.com/expandrew/tags.git) system usin
 * run visualization on top of this system to see connected elements
 * run UI framework on top of this system to allow interaction through a GUI
 
-## Meta
+## meta
 
-Active Record assessment for [Epicodus](http://epicodus.com)
+Active Record [assessment](http://www.learnhowtoprogram.com/lessons/active-record-assessment) for [Epicodus](http://epicodus.com)
 
 26 August 2014
 
