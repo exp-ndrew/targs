@@ -27,7 +27,7 @@ def items_rename index
   else
     puts "Enter a new name for #{item_to_rename.name}:"
     new_name = gets.chomp
-    item.all[index].update({:name => new_name})
+    Item.all[index].update({:name => new_name})
     puts "Successfully renamed to #{new_name}!"
     wait
     items_menu
@@ -122,7 +122,7 @@ def item_to_tag
   puts "Enter the number of the item you would like to assign a tag to:"
   input = gets.chomp.downcase
   case input
-  when /\d*/
+  when /\d+/
     the_item = Item.all[(input.to_i)-1]
     ws
     puts "Assign a tag to '#{the_item.name}':"
@@ -159,7 +159,7 @@ def tag_to_item
   puts "Enter the number of the tag you would like to assign to an item:"
   input = gets.chomp.downcase
   case input
-  when /\d*/
+  when /\d+/
     the_tag = Tag.all[(input.to_i)-1]
     ws
     puts "Assign '#{the_tag.name}' to an item:"

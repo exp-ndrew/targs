@@ -4,7 +4,7 @@ A re-write of my other [Tags](https://github.com/expandrew/tags.git) system usin
 
 ## what
 
-* a tagging system
+* a tagging system; allows a user to enter items and tags, and associate each to the other, as well as return the associations
 * *#[selfdogfood](http://indiewebcamp.com/selfdogfood), #[onethingwell](http://onethingwell.org/)*
 * a building block of an experiment I'm working on
 

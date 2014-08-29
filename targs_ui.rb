@@ -6,25 +6,19 @@ require './ui_methods.rb'
 def main_menu
   c
   puts "Choose an option:"
-  puts "1 > New Item"
-  puts "2 > New Tag"
-  puts "3 > Items Menu"
-  puts "4 > Tags Menu"
-  puts "5 > Assign"
+  puts "1 > Items Menu (View, New, Edit, Delete)"
+  puts "2 > Tags Menu (View, New, Edit, Delete)"
+  puts "3 > Assign"
   puts "X > Exit"
 
   menu_choice = gets.chomp.downcase
 
   case menu_choice
   when '1' then
-    items_new
-    main_menu
+    items_menu
   when '2'
-    tags_new
-    main_menu
-  when '3' then items_menu
-  when '4' then tags_menu
-  when '5' then assign_menu
+    tags_menu
+  when '3' then assign_menu
   when 'x'
     puts "Goodbye!"
     wait
@@ -43,12 +37,18 @@ def items_menu
     puts "#{index+1}. #{item.name}"
   end
   ws
+  puts "\# View Item"
+  puts "T > Assign a Tag to an Item"
   puts "N > New Item"
   puts "E > Edit a Item name"
   puts "D > Delete a Item"
   puts "R > Return to main menu"
   input = gets.chomp.downcase
   case input
+  when /\d+/
+    puts "view item"
+    wait
+    items_menu
   when 'n'
     items_new
     items_menu
@@ -58,7 +58,7 @@ def items_menu
     input = gets.chomp
     case input
     when 'c' then items_menu
-    when /\d*/
+    when /\d+/
       items_delete((input.to_i)-1)
     end
   when 'e'
@@ -67,14 +67,18 @@ def items_menu
     input = gets.chomp
     case input
     when 'c' then items_menu
-    when /\d*/
+    when /\d+/
       items_rename((input.to_i)-1)
     else
       error
       items_menu
     end
+  when 'r'
+    main_menu
+  else
+    error
+    items_menu
   end
-  main_menu
 end
 
 def tags_menu
@@ -86,6 +90,8 @@ def tags_menu
   end
 
   ws
+  puts "\# View Tag"
+  puts "I > Assign a Tag to an Item"
   puts "N > New Tag"
   puts "E > Edit a Tag name"
   puts "D > Delete a Tag"
@@ -94,6 +100,10 @@ def tags_menu
   input = gets.chomp.downcase
 
   case input
+  when /\d+/
+    puts "view tag"
+    wait
+    tags_menu
   when 'n'
     tags_new
     tags_menu
@@ -103,7 +113,7 @@ def tags_menu
     input = gets.chomp
     case input
     when 'c' then tags_menu
-    when /\d*/
+    when /\d+/
       tags_delete((input.to_i)-1)
     end
   when 'e'
@@ -112,14 +122,18 @@ def tags_menu
     input = gets.chomp
     case input
     when 'c' then tags_menu
-    when /\d*/
+    when /\d+/
       tags_rename((input.to_i)-1)
     else
       error
       tags_menu
     end
+  when 'r'
+    main_menu
+  else
+    error
+    tags_menu
   end
-  main_menu
 end
 
 def assign_menu
